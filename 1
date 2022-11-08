@@ -1,0 +1,24 @@
+Вариант 12.
+def div_sum(n):
+res = 0
+  for d in range(1, n):
+    if n % d == 0:
+          res += d
+  return res
+
+def get_amicable_numbers(n):
+  res = []
+  res_inv = []
+  res_ami = []
+  for i in range(1, n+1):
+    k = div_sum(i)
+    if i != k and k <= n:
+       res.append( (i, k) )
+       res_inv.append( (k, i) )
+       if (i,k) in res_inv:
+         res_ami.append( (k, i) )
+  return res_ami
+n = int( input( 'n = ' ) )
+print( get_amicable_numbers(n) )
+n=1000
+{(220;284)}
