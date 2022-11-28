@@ -1,0 +1,51 @@
+#89 вариант
+import json
+import requests
+from tkinter import *
+from tkinter import ttk
+import tkinter.messagebox as mb
+
+def funs():
+name = txt FinogenovaViktoria.get('1.0', END).lower().strip()
+if name == "python":
+
+response = requests.get("https://github.com/FinogenovaViktoria/zadanie-1", auth=(' FinogenovaViktoria 3', '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'))
+data = response.json()
+
+output = dict()
+output['company'] = data.get('company')
+output['created_at'] = data.get("created_at")
+output['email'] = data.get("email")
+output['id'] = data.get("id")
+output['name'] = data.get("name")
+output['url'] = data.get("url")
+
+with open ('11laba\kfail.json', 'w') as file:
+json.dump(output, file)
+else:
+mb.showerror('Error', 'Неверно введите ещё раз!')
+
+def cleaning():
+txt FinogenovaViktoria.delete(1.0, END)
+
+window = Tk()
+window.title("Финогенова Виктория Алексеевна ")
+window.geometry('400x250')
+window['bg']='light green'
+
+tab_control = ttk.Notebook(window)
+
+txt FinogenovaViktoria = Text(window,bg='aquamarine', font=("Times New Romane", 10))
+txt FinogenovaViktoria.place(x = 15, y = 120, width=370, height=20)
+txt FinogenovaViktoria.focus_set()
+
+btn1 = Button(window, text="Сохранить",bg='pink', font=("Times New Romane", 10), command=funs)
+btn1.place(x=110, y = 150, width=170, height=40)
+
+lbl = Label(window, text="Ввод: python ",bg='pink', font=("Times New Romane", 14))
+lbl.place(x=15, y = 15, width=370, height=50 )
+
+btn = Button(window, text="Очистить", bg="light blue", command=cleaning)
+btn.grid(column=10, rows=2)
+
+window.mainloop()
