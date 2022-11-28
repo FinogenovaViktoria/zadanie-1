@@ -1,0 +1,26 @@
+
+def block_a():
+x = float(input())
+n = float(input())
+
+def fac(n):
+if n == 0:
+return 1
+return fac(n-1) * n
+
+func1 = (x**n)/fac(n)
+
+print(func1)
+
+def block_b():
+arr = []
+def func():
+x = int(input())
+if x == 0:
+print(max(arr))
+arr.append(x)
+return func()
+func()
+
+block_a()
+block_b()
