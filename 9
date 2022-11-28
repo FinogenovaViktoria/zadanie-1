@@ -1,0 +1,32 @@
+f=open('C:/Users/User/Desktop/Финогенова Виктория Алексеевна_УБ-21_vvod.txt',"r")
+s=open('C:/Users/User/Desktop/Финогенова Виктория Алексеевна_УБ-21_vivod.txt',"w")
+A=[]
+for line in f:
+a=list(map(int,line.split()))
+A.append(a)
+s.write("Задание 1\n")
+B=[]
+for i in range(4):
+b=[]
+for j in range(4):
+b.append(A[j][i])
+B.append(b)
+for i in range(4):
+if A[i]==B[i]:
+s.write(str(i+1))
+s.write(" строка и столбец совпадают\n")
+s.write("Задание 2\n")
+k=open('C:/Users/User/Desktop/6.txt','r')
+m=[]
+for line in k:
+l=list(map(int,line.split()))
+m.append(l)
+
+for i in range (len(m)-1):
+for j in range (len(m[0])):
+m[i][j]-=m[-1][j]
+for i in m :
+s.write(str(i))
+s.write("\n")
+f.close()
+s.close()
